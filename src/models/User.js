@@ -14,10 +14,5 @@ module.exports = (sequelize, DataTypes) => {
       underscored: true,
     });
   
-    // User.associate = (models) => {
-    //   User.hasOne(models.Address,
-    //     { foreignKey: 'userId', as: 'addresses' });
-    // };
-  
     return User;
   };

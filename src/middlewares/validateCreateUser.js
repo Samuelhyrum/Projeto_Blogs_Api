@@ -24,3 +24,7 @@ module.exports = (req, res, next) => {
 
     return next();
   };
+
+//   {
+//     "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVzZXJJZCI6M30sImlhdCI6MTY2OTk5NzExOCwiZXhwIjoxNjcwNjAxOTE4fQ.KszQPyAHInbQniciTj3zqDUmw9uSQoinoR-CZJu9SAc"
+//   }

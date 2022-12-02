@@ -1,14 +1,14 @@
 const express = require('express');
-const Login = require('./controllers/login');
-const User = require('./controllers/user');
-const ValidateUser = require('./middlewares/validateCreateUser');
+const { loginRouter, userRouter } = require('./routers');
 // ...
 
 const app = express();
 
 app.use(express.json());
-app.post('/login', Login);
-app.post('/user', ValidateUser, User);
+
+app.use('/login', loginRouter);
+app.use('/user', userRouter);
+
 // ...
 
 // É importante exportar a constante `app`,
