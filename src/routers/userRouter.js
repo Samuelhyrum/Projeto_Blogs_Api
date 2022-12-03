@@ -2,6 +2,7 @@ const express = require('express');
 const User = require('../controllers/user');
 const ValidateUser = require('../middlewares/validateCreateUser');
 const getUsers = require('../controllers/getUsers');
+const getByIdUser = require('../controllers/getByIdUser');
 const auth = require('../auth/validateJWT');
 
 const router = express.Router();
@@ -16,6 +17,12 @@ router.get(
     '/',
     auth,
     getUsers,
+);
+
+router.get(
+    '/:id',
+    auth,
+    getByIdUser,
 );
 
 module.exports = router;
