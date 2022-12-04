@@ -1,5 +1,6 @@
 const express = require('express');
 const categoryCreate = require('../controllers/categoryCreate');
+const getCategories = require('../controllers/getCategories');
 const validateCategory = require('../middlewares/validateCreateCategory');
 const auth = require('../auth/validateJWT');
 
@@ -12,16 +13,10 @@ router.post(
   categoryCreate,
 );
 
-// router.get(
-//     '/',
-//     auth,
-//     getUsers,
-// );
-
-// router.get(
-//     '/:id',
-//     auth,
-//     getByIdUser,
-// );
+router.get(
+    '/',
+    auth,
+    getCategories,
+);
 
 module.exports = router;
