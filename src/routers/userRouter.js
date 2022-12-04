@@ -1,5 +1,5 @@
 const express = require('express');
-const User = require('../controllers/user');
+const User = require('../controllers/userCreate');
 const ValidateUser = require('../middlewares/validateCreateUser');
 const getUsers = require('../controllers/getUsers');
 const getByIdUser = require('../controllers/getByIdUser');
