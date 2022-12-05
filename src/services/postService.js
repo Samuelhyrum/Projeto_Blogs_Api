@@ -1,4 +1,4 @@
-const { BlogPost, PostCategory, sequelize } = require('../models');
+const { BlogPost, PostCategory, sequelize, Category, User } = require('../models');
 
 const getByTitle = (title) => BlogPost.findOne({ where: { title } });
 
@@ -21,10 +21,14 @@ const createPost = async ({ title, content, userId, categoryIds }) => {
     }
   };
 
-const getPosts = () => BlogPost.findAll();
+const getAllPosts = () => BlogPost.findAll({
+  include: [
+    { model: User, as: 'user', attributes: { exclude: ['password'] } },
+    { model: Category, as: 'categories', through: { attributes: [] } }],
+});
 
 module.exports = {
     getByTitle,
     createPost,
-    getPosts,
+    getAllPosts,
 };
