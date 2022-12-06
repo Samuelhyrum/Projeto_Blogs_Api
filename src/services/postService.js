@@ -35,8 +35,19 @@ const getAllPosts = () => BlogPost.findAll({
     { model: Category, as: 'categories', through: { attributes: [] } }],
 });
 
+const updatePost = async (id, { title, content }) => {
+  const [update] = await BlogPost.update({ title, content },
+    { where: { id },
+    include: [
+      { model: User, as: 'user', attributes: { exclude: ['password'] } },
+      { model: Category, as: 'categories', through: { attributes: [] } }],
+   });
+   return update;
+};
+
 module.exports = {
   getByIdPost,
     createPost,
     getAllPosts,
+    updatePost,
 };

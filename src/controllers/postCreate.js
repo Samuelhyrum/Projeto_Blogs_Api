@@ -5,7 +5,6 @@ const { CategoryService } = require('../services');
 module.exports = async (req, res) => {
     const { title, content, categoryIds } = req.body;
     const { userId } = req.user.data;
-    console.log(userId);
 
     const categoryId = await CategoryService.getCategories();
 

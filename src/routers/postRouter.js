@@ -4,6 +4,8 @@ const auth = require('../auth/validateJWT');
 const postCreate = require('../controllers/postCreate');
 const getAllPosts = require('../controllers/getAllPosts');
 const getByIdPost = require('../controllers/getByIdPost');
+const postUptdated = require('../controllers/updatePost');
+const validateUpdatePost = require('../middlewares/validatePostUpdate');
 
 const router = express.Router();
 
@@ -24,6 +26,13 @@ router.get(
   '/:id',
   auth,
   getByIdPost,
+);
+
+router.put(
+  '/:id',
+  auth,
+  validateUpdatePost,
+  postUptdated,
 );
 
 module.exports = router;
